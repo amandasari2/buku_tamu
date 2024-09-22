@@ -1,0 +1,79 @@
+<!-- SELECT2 EXAMPLE -->
+<div class="card card-default">
+    <div class="card-header">
+        <h3 class="card-title">Tambah Data Tamu</h3>
+
+        <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+    <?php $validation = \Config\Services::validation(); ?>
+    <?= form_open_multipart('Tamu/InsertData') ?>
+
+        <div class="form-group row">
+            <label for="nama" class="col-4 col-form-label">Nama Tamu</label>
+            <div class="col-8">
+                <input id="nama" name="nama" placeholder="Masukan Nama Anda" type="text" class="form-control">
+                <p class="text-danger"><?= isset($validation) ? $validation->showError('nama') : '' ?></p>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="jenis_kelamin" class="col-4 col-form-label">Jenis Kelamin</label>
+            <div class="col-8">
+                <select id="jenis_kelamin" name="jenis_kelamin" class="custom-select">
+                    <option value="">-- Pilih Jenis Kelamin Anda --</option>
+                    <option value="Laki - Laki">Laki - Laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                </select>
+                <p class="text-danger"><?= isset($validation) ? $validation->showError('jenis_kelamin') : '' ?></p>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="instansi" class="col-4 col-form-label">Instansi/Perusahaan</label>
+            <div class="col-8">
+                <input id="instansi" name="instansi" placeholder="Masukan Instansi/Perusahaan Anda" type="text" class="form-control">
+                <p class="text-danger"><?= isset($validation) ? $validation->showError('instansi') : '' ?></p>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="no_telp" class="col-4 col-form-label">Nomor Telepon</label>
+            <div class="col-8">
+                <input id="no_telp" name="no_telp" placeholder="Masukan Nomor Telepon Anda" type="number" class="form-control">
+                <p class="text-danger"><?= isset($validation) ? $validation->showError('no_telp') : '' ?></p>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="alamat" class="col-4 col-form-label">Alamat</label>
+            <div class="col-8">
+                <input id="alamat" name="alamat" placeholder="Masukan Alamat Anda" type="text" class="form-control">
+                <p class="text-danger"><?= isset($validation) ? $validation->showError('alamat') : '' ?></p>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="keperluan" class="col-4 col-form-label">Kunjungan/Keperluan</label>
+            <div class="col-8">
+                <textarea id="keperluan" name="keperluan" cols="40" rows="5" class="form-control"></textarea>
+            </div>
+            <p class="text-danger"><?= isset($validation) ? $validation->showError('keperluan') : '' ?></p>
+        </div>
+        <div class="form-group row">
+            <div class="offset-4 col-8">
+                <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+                <a href="<?= base_url('Tamu') ?>" class="btn btn-success btn-flat">Kembali</a>
+            </div>
+        </div>
+
+        <?= form_close() ?>
+
+        <!-- /.row -->
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</div>
